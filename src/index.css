@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #F7F8FF;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    
+}
+li{
+    display: inline-block;
+    margin: 0 8px;
+    cursor: pointer;
+    font-size: 14px;
+    
+}
+input:focus {
+    outline: none;
+}
