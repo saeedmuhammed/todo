@@ -1,9 +1,12 @@
 //Icons Import
-import { Bell , Search , Logo } from "../../Icons/Icons";
+import { Bell , Logo } from "../../Icons/Icons";
+import { VscChevronDown } from "react-icons/vsc";
+
 
 //Image Import
 import avatar from '../../Images/27470335_7309683.jpg'
-import { VscChevronDown } from "react-icons/vsc";
+
+import Search from "./Search";
 
 export default function Nav() {
   return (
@@ -20,11 +23,8 @@ export default function Nav() {
     <div className='w-1/3 flex justify-start lg:justify-center items-center'>
       <Logo />
     </div>
-    <div className=' w-1/3 flex items-center justify-end pr-3'>
-      <div className='bg-[#F2F4FF] p-2 rounded-lg text-center flex items-center '>
-        <Search  className='inline-block mr-1'/>
-        <input type='text' placeholder='Search' className='bg-transparent placeholder-[#ACB5FF] text-sm'/>
-      </div>
+    <div className=' w-3/4 lg:w-1/3 flex items-center justify-end pr-3 '>
+      <Search />
       <div>
         <Bell className='inline-block mx-5' />
       </div>

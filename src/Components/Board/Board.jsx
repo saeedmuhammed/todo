@@ -1,5 +1,5 @@
-
 //Icons Import
+import { useContext} from "react";
 import { Plus , Star , Private , BoardOutline , DownArrow , PowerUp , Electric , Filter , ThreeDotsV } from "../../Icons/Icons";
 
 // Image Import
@@ -9,8 +9,15 @@ import avatar from '../../Images/27470335_7309683.jpg'
 import List from '../List/List';
 import BoardOption from "./BoardOption";
 
+// Context Import
+import { CardsContext } from "../../Context/CradsContext";
+
+
 export default function Board() {
-  return (
+      
+    const {lists} = useContext(CardsContext);
+
+    return (
     <div className='row-start-1 col-span-6'>
     {/* Board options */}
      <div className='flex  sm:flex-wrap  justify-between items-center mb-8'>
@@ -35,14 +42,13 @@ export default function Board() {
        </div>
      </div>
 
-   
      
      <div className='grid grid-cols-1  md:grid-cols-3 lg:md:grid-cols-4 gap-4 grid-auto-rows-auto'>
-       
 
-       <List title="To Do" cards={[{title:"Card title"}]} />
-       <List title="In Progress" cards={[]} />
-       <List title="Done" cards={[]} />
+     {lists && Object.entries(lists).map(([listTitle, {id,cards}]) => (
+        <List key={id} title={listTitle} cards={cards}  />
+      ))}
+
     
       {/* add another list */}
        <div>
@@ -54,6 +60,8 @@ export default function Board() {
 
 
      </div>
+
+     
      
    </div>
   )
