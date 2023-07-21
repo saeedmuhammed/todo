@@ -34,6 +34,7 @@ export default function List({ title, cards }) {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef}
+                      
                     >
                       <Card card={card} index={index} />
                     </div>

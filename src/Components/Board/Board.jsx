@@ -46,15 +46,6 @@ export default function Board() {
         ...dragedCard,
         Status: result.destination.droppableId,
       };
-      if (result.source.droppableId !== result.destination.droppableId) {
-        // if the card is moved to another list
-        await axios.put(
-          `https://strapi.techytypes.com/todos/${dragedCard.id}`,
-          JSON.stringify(updatedCard),
-          config
-        );
-      }
-
       const updatedLists = { ...lists };
       updatedLists[result.source.droppableId].cards[
         result.source.index
@@ -75,8 +66,18 @@ export default function Board() {
         card.id === updatedCard.id ? updatedCard : card
       );
       setAllCards(updatedAllCards);
+      if (result.source.droppableId !== result.destination.droppableId) {
+        // if the card is moved to another list
+        await axios.put(
+          `https://strapi.techytypes.com/todos/${dragedCard.id}`,
+          JSON.stringify(updatedCard),
+          config
+        );
+      }
+
+      
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching data your drag will not be saved:", error);
     }
   };
 
