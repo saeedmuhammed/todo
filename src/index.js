@@ -7,11 +7,11 @@ import { CradsContextProvider } from "./Context/CradsContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
   <CradsContextProvider>
     <App />
   </CradsContextProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 
